@@ -1,0 +1,8 @@
+tqdm
+scipy
+scikit-learn
+lightgbm
+pandas
+deap
+hyperopt
+thop
