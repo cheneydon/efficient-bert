@@ -4,14 +4,16 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--wiki_dir', type=str, default='', help='directory to extracted wiki corpus')
+parser.add_argument('--wiki_name', type=str, default='', help='file name of extracted wiki corpus')
 parser.add_argument('--book_dir', type=str, default='', help='directory to extracted book corpus')
+parser.add_argument('--book_name', type=str, default='', help='file name of extracted book corpus')
 parser.add_argument('--output_dir', type=str, default='', help='txt path to formatted wiki corpus')
 args = parser.parse_args()
 
 
 # Put one article per line
 def format_wiki_corpus():
-    output_path = os.path.join(args.output_dir, 'wikicorpus_en_format.txt')
+    output_path = os.path.join(args.output_dir, args.wiki_name)
     with open(output_path, mode='w', newline='\n') as ofile:
         for dirname in glob.glob(args.wiki_dir + '/*/', recursive=False):
             for filename in glob.glob(dirname + 'wiki_*', recursive=True):
@@ -36,7 +38,7 @@ def format_wiki_corpus():
 
 
 def format_book_corpus():
-    output_path = os.path.join(args.output_dir, 'bookcorpus_format.txt')
+    output_path = os.path.join(args.output_dir, args.book_name)
     with open(output_path, mode='w', newline='\n') as ofile:
         for filename in glob.glob(args.book_dir + '/' + '*.txt', recursive=True):
             with open(filename, mode='r', encoding='utf-8-sig', newline='\n') as file:
