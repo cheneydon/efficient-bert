@@ -1,5 +1,5 @@
 # EfficientBERT: Progressively Searching Multilayer Perceptron via Warm-up Knowledge Distillation
-This repository contains the code for the paper in Findings of EMNLP 2021: ["EfficientBERT: Progressively Searching Multilayer Perceptron via Warm-up Knowledge Distillation"](http://arxiv.org/abs/2109.07222).
+This repository contains the code for the paper in Findings of EMNLP 2021: ["EfficientBERT: Progressively Searching Multilayer Perceptron via Warm-up Knowledge Distillation"](https://aclanthology.org/2021.findings-emnlp.123).
 
 
 ## Requirements
@@ -51,7 +51,7 @@ We also provide the checkpoint of the supernet in stage 3 (pre-trained with both
 at [HERE](https://drive.google.com/file/d/15DKJ61ulrrjEvBDhKTRu3r4eJz9shAGa/view?usp=sharing). 
 
 
-## Train the teacher model (BERT$_{\rm BASE}$)
+## Train the teacher model (BERT-base)
 ```shell
 bash train.sh
 ```
@@ -70,14 +70,14 @@ The checkpoints will be saved into `./exp/ffn_search/`.
 
 ## Distill the student model
 
-### - TinyBERT$_4$, TinyBERT$_6$
+### - TinyBERT-4, TinyBERT-6
 ```shell
 bash finetune.sh
 ```
 The checkpoints will be saved into `./exp/downstream/tiny_bert/`.
 
 
-### - EfficientBERT$_{\rm TINY}$, EfficientBERT, EfficientBERT+, EfficientBERT++
+### - EfficientBERT-tiny, EfficientBERT, EfficientBERT+, EfficientBERT++
 ```shell
 bash nas_finetune.sh
 ```
@@ -87,11 +87,11 @@ Then fine-tune it on the downstream datasets,
 and save the fine-tuned checkpoints into `./exp/downstream/auto_bert/`.
 
 We also provide the pre-trained checkpoints of the student models 
-(including EfficientBERT$_{\rm TINY}$, EfficientBERT, and EfficientBERT++) 
+(including EfficientBERT-TINY, EfficientBERT, and EfficientBERT++) 
 at [HERE](https://drive.google.com/file/d/15DKJ61ulrrjEvBDhKTRu3r4eJz9shAGa/view?usp=sharing).
 
 
-### - EfficientBERT (TinyBERT$_6$)
+### - EfficientBERT (TinyBERT-6)
 ```shell
 bash nas_finetune_transfer.sh
 ```
